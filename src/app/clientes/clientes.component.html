@@ -1,0 +1,24 @@
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col" style="width: 20%;" >Identificación</th>
+            <th scope="col" style="width: 30%;" >Nombre</th>
+            <th scope="col" style="width: 10%;">Edad</th>
+            <th scope="col" style="width: 20%;">Fecha de nacimiento</th>
+            <th scope="col" style="width: 20%; text-align: center;">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cliente of clientes">
+            <th scope="row">{{cliente.identificacion}}</th>
+            <td>{{cliente.nombre}}</td>
+            <td>{{cliente.edad}}</td>
+            <td>{{getFormato(cliente.fechaNacimiento)}}</td>
+            <td style="display: flex; justify-content: center;">
+                <button type="button" class="btn btn-primary" [routerLink]="['/cliente', cliente.identificacion]" >ver</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+{{mensajeRecibido}}

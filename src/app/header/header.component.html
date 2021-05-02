@@ -1,0 +1,11 @@
+<nav class="header navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="header-nav">
+        <label class="header-nav__title">Gestor de clientes</label>
+        <form #f="ngForm" class="form-inline search">
+            <input *ngIf="openSearch" class="form-control mr-sm-2" [(ngModel)]="filtro"
+                (ngModelChange)="filtrarClientes($event)" name="filtro" type="search" [placeholder]="'Buscar'">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="openSearch=!openSearch">
+                <i class="fa fa-search"></i></button>
+        </form>
+    </div>
+</nav>

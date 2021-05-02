@@ -1,0 +1,52 @@
+.header {
+    height: 60px;
+    &-nav {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+        flex-direction: column;
+        > .header-nav__title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            line-height: 1.6rem;
+            color: white;
+        }
+    }
+}
+.btn-outline-success {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+.form-inline.search {
+    position: absolute;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+    top: 1px;
+    left: 10px;
+    input {
+        margin-left: 5px;
+        width: 80vw;
+    }
+    button {
+        background: transparent;
+    }
+    button:hover {
+        background-color: rgb(32, 134, 55);
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .header-nav {
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+    .form-inline.search {
+        flex-direction: row;
+        position: relative;
+        input {
+            width: 100%;
+        }
+    }
+}
