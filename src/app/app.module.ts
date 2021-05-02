@@ -10,6 +10,7 @@ import { ClientesComponent } from './clientes/clientes.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { FormComponent } from './form/form.component';
+import { GeneralService } from './servicios/general.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { FormComponent } from './form/form.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [GeneralService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

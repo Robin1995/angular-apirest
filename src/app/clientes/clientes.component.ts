@@ -12,7 +12,7 @@ import * as moment from "moment";
 })
 export class ClientesComponent implements OnInit {
   clientes: Cliente[];
-  mensajeRecibido: any;
+  cargando: boolean = false;
   constructor(private generalServie: GeneralService) {}
 
   ngOnInit() {
@@ -28,7 +28,9 @@ export class ClientesComponent implements OnInit {
     });
   }
   obtenerDatos(url: string) {
+    this.cargando = true;
     this.generalServie.getData(url).subscribe((res: Respuesta) => {
+      this.cargando = false;
       if (res.codigo === 0) {
         this.clientes = res.cuerpo;
         console.log(this.clientes);
