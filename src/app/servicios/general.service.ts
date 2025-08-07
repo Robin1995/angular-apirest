@@ -8,7 +8,9 @@ const httpOptions = {
     'Content-Type': 'application/json'
   })
 };
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class GeneralService {
   filtro = new BehaviorSubject<string>('');
   filtroObservable = this.filtro.asObservable();

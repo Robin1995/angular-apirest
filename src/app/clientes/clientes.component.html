@@ -1,27 +1,38 @@
-<div *ngIf="cargando" class="d-flex justify-content-center">
-    <div class="spinner-border" role="status">
-      <span class="sr-only">Loading...</span>
+<div *ngIf="cargando" class="flex justify-center items-center py-8">
+    <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+    <span class="ml-2 text-gray-600">Cargando...</span>
+</div>
+
+<div *ngIf="!cargando" class="bg-white shadow-md rounded-lg overflow-hidden">
+    <div class="px-6 py-4 border-b border-gray-200">
+        <h2 class="text-xl font-semibold text-gray-800">Lista de Clientes</h2>
+    </div>
+    <div class="overflow-x-auto">
+        <table class="min-w-full divide-y divide-gray-200">
+            <thead class="bg-gray-50">
+                <tr>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Identificación</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nombre</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Edad</th>
+                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fecha de nacimiento</th>
+                    <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones</th>
+                </tr>
+            </thead>
+            <tbody class="bg-white divide-y divide-gray-200">
+                <tr *ngFor="let cliente of clientes" class="hover:bg-gray-50">
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{cliente.identificacion}}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{cliente.nombre}}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{cliente.edad}}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{getFormato(cliente.fechaNacimiento)}}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                        <button type="button" 
+                                class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" 
+                                [routerLink]="['/cliente', cliente.identificacion]">
+                            Ver
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
-<table class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col" style="width: 20%;" >Identificación</th>
-            <th scope="col" style="width: 30%;" >Nombre</th>
-            <th scope="col" style="width: 10%;">Edad</th>
-            <th scope="col" style="width: 20%;">Fecha de nacimiento</th>
-            <th scope="col" style="width: 20%; text-align: center;">Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let cliente of clientes">
-            <th scope="row">{{cliente.identificacion}}</th>
-            <td>{{cliente.nombre}}</td>
-            <td>{{cliente.edad}}</td>
-            <td>{{getFormato(cliente.fechaNacimiento)}}</td>
-            <td style="display: flex; justify-content: center;">
-                <button type="button" class="btn btn-primary" [routerLink]="['/cliente', cliente.identificacion]" >ver</button>
-            </td>
-        </tr>
-    </tbody>
-</table>

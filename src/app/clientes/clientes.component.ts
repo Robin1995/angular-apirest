@@ -1,4 +1,7 @@
 import { Component, OnInit } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { FormsModule } from "@angular/forms";
+import { RouterModule } from "@angular/router";
 import { GeneralService } from "../servicios/general.service";
 import { Cliente } from "./cliente";
 import { Respuesta } from "../interfaces/respuesta";
@@ -9,9 +12,11 @@ import * as moment from "moment";
   selector: "app-clientes",
   templateUrl: "./clientes.component.html",
   styleUrls: ["./clientes.component.scss"],
+  standalone: true,
+  imports: [CommonModule, FormsModule, RouterModule]
 })
 export class ClientesComponent implements OnInit {
-  clientes: Cliente[];
+  clientes: Cliente[] = [];
   cargando: boolean = false;
   constructor(private generalServie: GeneralService) {}
 
@@ -40,7 +45,7 @@ export class ClientesComponent implements OnInit {
     });
   }
 
-  getFormato(fecha): string {
+  getFormato(fecha: any): string {
     return moment(fecha).format("DD/MM/YYYY");
   }
 }

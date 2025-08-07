@@ -1,6 +1,6 @@
 export class Cliente {
-    identificacion: number;
-    nombre: string;
-    edad: string;
-    fechaNacimiento: string;
+    identificacion: number = 0;
+    nombre: string = '';
+    edad: string = '';
+    fechaNacimiento: string = '';
 }
