@@ -43,3 +43,5 @@ Thumbs.db
 # Angular CLI
 .angular/
 .angular/*
+# Angular build artifacts
+/dist

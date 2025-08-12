@@ -8,7 +8,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "deploy": "npx angular-cli-ghpages --dir=dist/angular-apirest"
   },
   "private": true,
   "dependencies": {
@@ -32,6 +33,7 @@
     "@angular/language-service": "^17.0.0",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^18.0.0",
+    "angular-cli-ghpages": "^2.0.3",
     "autoprefixer": "^10.4.21",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
